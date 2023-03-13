@@ -57,11 +57,12 @@ def sendEmail(email):
 def main():
     testPittUser = 'JZC23'
     # pittUser = generateRandomPittUser()
-    # email = lookUpUser(testPittUser)
-    emails = ['amm517@pitt.edu', 'jzc23@pitt.edu', 'jpl86@pitt.edu']  # Testing
-    for email in emails:
-        print(email)
-        sendEmail(email)
+    email = lookUpUser(testPittUser)
+    sendEmail(email)
+    # emails = ['amm517@pitt.edu', 'jzc23@pitt.edu', 'jpl86@pitt.edu']  # Testing
+    # for email in emails:
+    #     print(email)
+    #     sendEmail(email)
 
 
 if __name__ == "__main__":
