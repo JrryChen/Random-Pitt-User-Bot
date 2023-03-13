@@ -61,9 +61,9 @@ def sendEmail(email):
 
 
 def main():
-    # testPittUser = 'JZC23'
+    testPittUser = 'JZC23'
     pittUser = generateRandomPittUser()
-    email = lookUpUser(pittUser)
+    email = lookUpUser(testPittUser)
     sendEmail(email)
 
     # emails = ['amm517@pitt.edu', 'jzc23@pitt.edu', 'jpl86@pitt.edu']  # Testing
