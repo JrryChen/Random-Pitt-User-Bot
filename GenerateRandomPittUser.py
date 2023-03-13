@@ -46,19 +46,22 @@ def lookUpUser(username):
 def sendEmail(email):
     outlook = win32com.Dispatch("Outlook.Application")
     mail = outlook.CreateItem(0)
-    mail.To = 'JZC23@pitt.edu'
-    mail.Subject = 'Test'
-    mail.Body = 'Test'
+    mail.To = email
+    mail.Subject = 'Email Bot Test'
+    mail.Body = 'ECON 0150 - Email Bot Test'
     mail.Display()
     mail.Send()
-    print('Email sent to: ', email)
+    print('emails sent')
 
 
 def main():
     testPittUser = 'JZC23'
-    pittUser = generateRandomPittUser()
-    email = lookUpUser(testPittUser)
-    sendEmail(email)
+    # pittUser = generateRandomPittUser()
+    # email = lookUpUser(testPittUser)
+    emails = ['amm517@pitt.edu', 'jzc23@pitt.edu', 'jpl86@pitt.edu']  # Testing
+    for email in emails:
+        print(email)
+        sendEmail(email)
 
 
 if __name__ == "__main__":
