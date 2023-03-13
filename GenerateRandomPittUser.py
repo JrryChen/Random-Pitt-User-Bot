@@ -24,7 +24,7 @@ def lookUpUser(username):
     gal = outlook.Session.GetGlobalAddressList()
     entries = gal.AddressEntries
     ae = entries[username]
-    print(ae)  # dubugging
+    print('Address Entry: ', ae)  # dubugging
     email_address = None
 
     if 'EX' == ae.Type:
@@ -40,6 +40,7 @@ def lookUpUser(username):
         print('UserType: SMTP')
         email_address = ae.Address
 
+    print('Email Address: ', email_address)
     return email_address
 
 
@@ -50,14 +51,15 @@ def sendEmail(email):
     mail.Subject = 'Email Bot Test'
     mail.Body = 'ECON 0150 - Email Bot Test'
     mail.Display()
-    mail.Send()
-    print('emails sent')
+    print('Email Displayed')
+    # mail.Send()
+    # print('Email Sent')
 
 
 def main():
-    testPittUser = 'JZC23'
-    # pittUser = generateRandomPittUser()
-    email = lookUpUser(testPittUser)
+    # testPittUser = 'JZC23'
+    pittUser = generateRandomPittUser()
+    email = lookUpUser(pittUser)
     sendEmail(email)
 
     # emails = ['amm517@pitt.edu', 'jzc23@pitt.edu', 'jpl86@pitt.edu']  # Testing
