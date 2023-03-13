@@ -45,6 +45,9 @@ def lookUpUser(username):
 
 
 def sendEmail(email):
+    if (email == None):
+        print('No Email')
+        return
     outlook = win32com.Dispatch("Outlook.Application")
     mail = outlook.CreateItem(0)
     mail.To = email
@@ -54,6 +57,7 @@ def sendEmail(email):
     print('Email Displayed')
     # mail.Send()
     # print('Email Sent')
+    return
 
 
 def main():
