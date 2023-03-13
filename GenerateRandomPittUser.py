@@ -4,17 +4,25 @@ import win32com.client as win32com  # For Outlook
 
 
 def lookUpUser(username):
+    print('Looking up user: ', username)
     outlook = win32com.Dispatch("Outlook.Application").GetNamespace("MAPI")
     gal = outlook.Session.GetGlobalAddressList()
     entries = gal.AddressEntries
     ae = entries[username]
+    # print(ae) dubugging
     email_address = None
 
     if 'EX' == ae.Type:
+        print('UserType: Exchange')
         eu = ae.GetExchangeUser()
-        email_address = eu.PrimarySmtpAddress
+        if eu == None:
+            print('User not found')
+            return
+        else:
+            email_address = eu.PrimarySmtpAddress
 
     if 'SMTP' == ae.Type:
+        print('UserType: SMTP')
         email_address = ae.Address
 
     print('Email address: ', email_address)
