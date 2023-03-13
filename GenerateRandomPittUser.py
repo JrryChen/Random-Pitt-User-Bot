@@ -15,7 +15,7 @@ def generateRandomPittUser():  # Generate a random Pitt user
 
     username = first + second + third + str(num1) + str(num2)
     # print(username)
-    return (username)
+    return username
 
 
 def lookUpUser(username):
