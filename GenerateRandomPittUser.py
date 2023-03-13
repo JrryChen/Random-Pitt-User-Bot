@@ -24,7 +24,7 @@ def lookUpUser(username):
     gal = outlook.Session.GetGlobalAddressList()
     entries = gal.AddressEntries
     ae = entries[username]
-    # print(ae) dubugging
+    print(ae)  # dubugging
     email_address = None
 
     if 'EX' == ae.Type:
@@ -43,10 +43,22 @@ def lookUpUser(username):
     return email_address
 
 
+def sendEmail(email):
+    outlook = win32com.Dispatch("Outlook.Application")
+    mail = outlook.CreateItem(0)
+    mail.To = 'JZC23@pitt.edu'
+    mail.Subject = 'Test'
+    mail.Body = 'Test'
+    mail.Display()
+    mail.Send()
+    print('Email sent to: ', email)
+
+
 def main():
     testPittUser = 'JZC23'
     pittUser = generateRandomPittUser()
-    email = lookUpUser(pittUser)
+    email = lookUpUser(testPittUser)
+    sendEmail(email)
 
 
 if __name__ == "__main__":
