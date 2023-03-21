@@ -81,7 +81,7 @@ def sendEmail(email, control):
     else:
         link = "https://forms.gle/P7c9QFMRBqW3FN8V8"
     
-    outlook = win32.Dispatch("Outlook.Application")
+    outlook = win32com.Dispatch("Outlook.Application")
     mail = outlook.CreateItem(0)
     mail.To = email
     mail.Subject = 'Brief Individual Decision-Making Survey Request'
@@ -101,7 +101,7 @@ def sendEmail(email, control):
         <p>If you have any questions or concerns, please do not hesitate to contact us. Thank you in advance for your participation!</p>
         <p>Best regards,<br>
         Jerry Chen, Amanda Magill, Jared Lawrence</p>
-        <p><img src="https://example.com/image.png" alt="Survey Image"></p>
+        <p><img src="file:///C:/Users/chess/Documents/Econ0150/Random-Pitt-User-Bot/University_of_Pittsburgh_Logo_CMYK_Primary_3-Color.png" alt="Survey Image" width="400" height=auto></p>
       </body>
     </html>
     """.format(link)
@@ -116,12 +116,12 @@ def main():
     # testPittUser = 'JZC23'
     # pittUser = generateRandomPittUser()
     # email = lookUpUser(testPittUser)
-    # sendEmail('jzc23@pitt.edu', True)
+    sendEmail('jzc23@pitt.edu', True)
 
-    emails = ['amm517@pitt.edu', 'jzc23@pitt.edu', 'jpl86@pitt.edu']  # Testing
-    for email in emails:
-        print(email)
-        sendEmail(email, True)
+    # emails = ['amm517@pitt.edu', 'jzc23@pitt.edu', 'jpl86@pitt.edu']  # Testing
+    # for email in emails:
+    #     print(email)
+    #     sendEmail(email, True)
 
 
 if __name__ == "__main__":
